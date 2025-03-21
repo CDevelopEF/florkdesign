@@ -1,5 +1,6 @@
 ---
 import astroLogo from '../assets/astro.svg';
+const PATH = '/florkdesign/'
 ---
 
 <div class="header">
@@ -11,10 +12,10 @@ import astroLogo from '../assets/astro.svg';
   <!-- Menú de Navegación -->
   <div class="nav-container">
     <ul class="nav">
-      <li><a href="/">Inicio</a></li>
-      <li><a href="/service">Servicios</a></li>
-      <li><a href="/price">Precios</a></li>
-      <li><a href="#galeria">Galería</a></li>
+      <li><a href=`${PATH}`>Inicio</a></li>
+      <li><a href=`${PATH}service`>Servicios</a></li>
+      <li><a href=`${PATH}price`>Precios</a></li>
+      <li><a href=`${PATH}galeria`>Galería</a></li>
     </ul>
   </div>
 
