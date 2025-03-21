@@ -1,7 +1,7 @@
 ---
 // src/pages/price.astro
-import Navbar from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Header.astro';
 ---
 
 <Layout>
@@ -14,7 +14,7 @@ import Layout from '../layouts/Layout.astro';
 
     <!-- Tabla de Precios -->
     <div class="pricing-table">
-      <!-- Encabezado de la Tabla -->
+      <!-- Encabezado de la Tabla (solo en desktop) -->
       <div class="pricing-header">
         <div class="header-item">Producto</div>
         <div class="header-item">Descripción</div>
@@ -26,60 +26,44 @@ import Layout from '../layouts/Layout.astro';
       <div class="pricing-row">
         <div class="row-item">
           <h3>Playeras Personalizadas</h3>
-        </div>
-        <div class="row-item">
-          <p>Diseños únicos para eventos, empresas o regalos.</p>
+          <p class="mobile-description">Diseños únicos para eventos, empresas o regalos.</p>
         </div>
         <div class="row-item">
           <p class="price">1500 cup</p>
-        </div>
-        <div class="row-item">
-          <p class="price">1250 cup (más de 5)</p>
+          <p class="price-note">Precio por cantidad (más de 5): 1250 cup</p>
         </div>
       </div>
 
       <div class="pricing-row">
         <div class="row-item">
           <h3>Tazas Personalizadas</h3>
-        </div>
-        <div class="row-item">
-          <p>Ideales para regalos corporativos o personales.</p>
+          <p class="mobile-description">Ideales para regalos corporativos o personales.</p>
         </div>
         <div class="row-item">
           <p class="price">1400 cup</p>
-        </div>
-        <div class="row-item">
-          <p class="price">1100 cup (más de 10)</p>
+          <p class="price-note">Precio por cantidad (más de 10): 1100 cup</p>
         </div>
       </div>
 
       <div class="pricing-row">
         <div class="row-item">
           <h3>Gorras Personalizadas</h3>
-        </div>
-        <div class="row-item">
-          <p>Personalización de gorras con tu diseño favorito.</p>
+          <p class="mobile-description">Personalización de gorras con tu diseño favorito.</p>
         </div>
         <div class="row-item">
           <p class="price">1200 cup</p>
-        </div>
-        <div class="row-item">
-          <p class="price">1200 cup (más de 10)</p>
+          <p class="price-note">Precio por cantidad (más de 10): 1200 cup</p>
         </div>
       </div>
 
       <div class="pricing-row">
         <div class="row-item">
           <h3>MousePad Personalizados</h3>
-        </div>
-        <div class="row-item">
-          <p>Personalización de MousePad con tu diseño favorito.</p>
+          <p class="mobile-description">Personalización de MousePad con tu diseño favorito.</p>
         </div>
         <div class="row-item">
           <p class="price">500 cup</p>
-        </div>
-        <div class="row-item">
-          <p class="price">450 cup (más de 10)</p>
+          <p class="price-note">Precio por cantidad (más de 10): 450 cup</p>
         </div>
       </div>
     </div>
@@ -174,6 +158,11 @@ import Layout from '../layouts/Layout.astro';
     color: #FF6B6B;
   }
 
+  .price-note {
+    font-size: 0.8rem;
+    color: #777777;
+  }
+
   /* Llamado a la Acción */
   .pricing-cta {
     margin-top: 30px;
@@ -212,15 +201,19 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .pricing-header {
-      display: none;
+      display: none; /* Oculta el encabezado en móviles */
     }
 
     .pricing-row {
-      display: grid;
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 10px;
       padding: 15px;
       border-bottom: 1px solid #F0F0F0;
+      background-color: #FFFFFF;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 10px;
     }
 
     .pricing-row:last-child {
@@ -234,23 +227,29 @@ import Layout from '../layouts/Layout.astro';
 
     .pricing-row h3 {
       font-size: 1.1rem;
+      margin-bottom: 5px;
+      color: #4ECDC4; /* Color destacado para el nombre del producto */
     }
 
     .pricing-row p {
       font-size: 0.85rem;
     }
 
+    .mobile-description {
+      display: block; /* Muestra la descripción en móviles */
+      font-size: 0.9rem;
+      color: #555555;
+      margin-bottom: 10px;
+    }
+
     .price {
       font-size: 0.9rem;
+      color: #FF6B6B; /* Color destacado para el precio */
     }
 
-    .pricing-cta p {
-      font-size: 0.9rem;
-    }
-
-    .cta-button {
-      font-size: 0.85rem;
-      padding: 8px 16px;
+    .price-note {
+      font-size: 0.75rem;
+      color: #777777;
     }
   }
 </style>
