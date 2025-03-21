@@ -1,0 +1,102 @@
+---
+// src/components/TestimonialSlider.astro
+---
+
+<div class="testimonial-slider">
+    <div class="slider-container">
+      <!-- Testimonio 1 -->
+      <div class="testimonial active">
+        <p class="testimonial-text">"Estaba buscando un regalo de ultima hora y los muchachos pudieron resolverme, excelente calidad y atencion."</p>
+        <p class="testimonial-author">- Maria Carla</p>
+      </div>
+  
+      <!-- Testimonio 2 -->
+      <div class="testimonial">
+        <p class="testimonial-text">"Las tazas personalizadas fueron un éxito en mi negocio. ¡Las recomiendo!"</p>
+        <p class="testimonial-author">- María Gómez</p>
+      </div>
+  
+      <!-- Testimonio 3 -->
+      <div class="testimonial">
+        <p class="testimonial-text">"Muy contento con las gorras. Los diseños son únicos y de alta calidad."</p>
+        <p class="testimonial-author">- Carlos Rodríguez</p>
+      </div>
+  
+      <!-- Testimonio 4 -->
+      <div class="testimonial">
+        <p class="testimonial-text">"Los stickers para mi carro quedaron geniales. ¡Gracias por el gran trabajo!"</p>
+        <p class="testimonial-author">- Ana López</p>
+      </div>
+  
+      <!-- Testimonio 5 -->
+      <div class="testimonial">
+        <p class="testimonial-text">"Los carteles de apertura llamaron mucho la atención. ¡Excelente calidad!"</p>
+        <p class="testimonial-author">- Luis Martínez</p>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+    /* Estilos del Slider */
+    .testimonial-slider {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+      background-color: #F7FFF7;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    .slider-container {
+      position: relative;
+      overflow: hidden;
+      height: 150px; /* Ajusta la altura según tus necesidades */
+    }
+  
+    .testimonial {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+  
+    .testimonial.active {
+      opacity: 1;
+    }
+  
+    .testimonial-text {
+      font-size: 1.25rem;
+      color: #2F2F2F;
+      margin-bottom: 10px;
+    }
+  
+    .testimonial-author {
+      font-size: 1rem;
+      color: #4ECDC4;
+      font-weight: 600;
+    }
+  </style>
+  
+  <script>
+    // JavaScript para el slider automático
+    let testimonials = document.querySelectorAll('.testimonial');
+    let currentIndex = 0;
+  
+    function showNextTestimonial() {
+      // Oculta el testimonio actual
+      testimonials[currentIndex].classList.remove('active');
+  
+      // Avanza al siguiente testimonio
+      currentIndex = (currentIndex + 1) % testimonials.length;
+  
+      // Muestra el siguiente testimonio
+      testimonials[currentIndex].classList.add('active');
+    }
+  
+    // Cambia el testimonio cada 5 segundos
+    setInterval(showNextTestimonial, 5000);
+  </script>
