@@ -1,0 +1,164 @@
+---
+// src/pages/servicios.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Header.astro';
+import 'aos/dist/aos.css';
+---
+
+<Layout>
+  <Navbar />
+
+  <!-- Sección de Servicios -->
+  <section class="services">
+    <h1 class="services-title" data-aos="fade-down">Nuestros Servicios</h1>
+    <p class="services-description" data-aos="fade-down" data-aos-delay="100">
+      Ofrecemos una amplia variedad de servicios de personalización y diseño.
+    </p>
+
+    <!-- Servicio 1: Sublimación -->
+    <div class="service" data-aos="zoom-in">
+      <div class="service-content">
+        <h2>Sublimación</h2>
+        <p>
+          Personalizamos playeras, tazas, gorras y más con diseños únicos y duraderos.
+          Nuestra técnica de sublimación garantiza colores vibrantes y alta calidad.
+        </p>
+      </div>
+      <div class="service-image">
+        <img src="/sublimacion.webp" alt="Sublimación" />
+      </div>
+    </div>
+
+    <!-- Servicio 2: Stickers para Carros -->
+    <div class="service" data-aos="zoom-in">
+      <div class="service-image">
+        <img src="/stickercarro.webp" alt="Stickers para Carros" />
+      </div>
+      <div class="service-content">
+        <h2>Stickers para Carros</h2>
+        <p>
+          Crea un estilo único para tu vehículo con nuestros stickers personalizados.
+          Resistentes a la intemperie y fáciles de aplicar.
+        </p>
+      </div>
+    </div>
+
+    <!-- Servicio 3: Pegatinas Bonitas -->
+    <div class="service" data-aos="zoom-in">
+      <div class="service-content">
+        <h2>Pegatinas Bonitas</h2>
+        <p>
+          Diseñamos pegatinas decorativas para laptops, cuadernos, paredes y más.
+          Ideales para darle un toque personal a tus pertenencias.
+        </p>
+      </div>
+      <div class="service-image">
+        <img src="/sticker.webp" alt="Pegatinas Bonitas" />
+      </div>
+    </div>
+
+    <!-- Servicio 4: Carteles de Apertura -->
+    <div class="service" data-aos="zoom-in">
+      <div class="service-image">
+        <img src="/horario.webp" alt="Carteles de Apertura" />
+      </div>
+      <div class="service-content">
+        <h2>Carteles de Apertura</h2>
+        <p>
+          Crea impacto con nuestros carteles de vinil adhesivo. Perfectos para negocios,
+          eventos y promociones. Diseños personalizados y de alta durabilidad.
+        </p>
+      </div>
+    </div>
+
+    <div class="service" data-aos="zoom-in">
+        <div class="service-image">
+          <img src="/senales.webp" alt="Carteles de Apertura" />
+        </div>
+        <div class="service-content">
+          <h2>Señaletica para interiores y exteriores.</h2>
+          <p>
+            Identifica cada una de las areas de tu negocio utilizando señaletica.
+          </p>
+        </div>
+      </div>
+  </section>
+</Layout>
+<script>
+    import AOS from "aos";
+    AOS.init();
+  </script>
+<style>
+  /* Estilos Generales */
+  .services {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .services-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #FF6B6B;
+    margin-bottom: 20px;
+  }
+
+  .services-description {
+    font-size: 1.25rem;
+    color: #555555;
+    margin-bottom: 40px;
+  }
+
+  /* Estilos de los Servicios */
+  .service {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .service-content {
+    flex: 1;
+    text-align: left;
+  }
+
+  .service-content h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2F2F2F;
+    margin-bottom: 15px;
+  }
+
+  .service-content p {
+    font-size: 1rem;
+    color: #555555;
+    line-height: 1.6;
+  }
+
+  .service-image {
+    flex: 1;
+  }
+
+  .service-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .service {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .service:nth-child(even) {
+      flex-direction: column-reverse;
+    }
+
+    .service-content, .service-image {
+      text-align: center;
+    }
+  }
+</style>

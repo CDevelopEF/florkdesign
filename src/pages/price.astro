@@ -1,0 +1,256 @@
+---
+// src/pages/price.astro
+import Navbar from '../components/Header.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <Navbar />
+
+  <!-- Sección de Precios -->
+  <section class="pricing">
+    <h1 class="pricing-title">Nuestros Precios</h1>
+    <p class="pricing-description">Ofrecemos precios competitivos para todos nuestros servicios. ¡Contáctanos para cotizaciones personalizadas!</p>
+
+    <!-- Tabla de Precios -->
+    <div class="pricing-table">
+      <!-- Encabezado de la Tabla -->
+      <div class="pricing-header">
+        <div class="header-item">Producto</div>
+        <div class="header-item">Descripción</div>
+        <div class="header-item">Precio Unitario</div>
+        <div class="header-item">Precio por Cantidad</div>
+      </div>
+
+      <!-- Filas de la Tabla -->
+      <div class="pricing-row">
+        <div class="row-item">
+          <h3>Playeras Personalizadas</h3>
+        </div>
+        <div class="row-item">
+          <p>Diseños únicos para eventos, empresas o regalos.</p>
+        </div>
+        <div class="row-item">
+          <p class="price">1500 cup</p>
+        </div>
+        <div class="row-item">
+          <p class="price">1250 cup (más de 5)</p>
+        </div>
+      </div>
+
+      <div class="pricing-row">
+        <div class="row-item">
+          <h3>Tazas Personalizadas</h3>
+        </div>
+        <div class="row-item">
+          <p>Ideales para regalos corporativos o personales.</p>
+        </div>
+        <div class="row-item">
+          <p class="price">1400 cup</p>
+        </div>
+        <div class="row-item">
+          <p class="price">1100 cup (más de 10)</p>
+        </div>
+      </div>
+
+      <div class="pricing-row">
+        <div class="row-item">
+          <h3>Gorras Personalizadas</h3>
+        </div>
+        <div class="row-item">
+          <p>Personalización de gorras con tu diseño favorito.</p>
+        </div>
+        <div class="row-item">
+          <p class="price">1200 cup</p>
+        </div>
+        <div class="row-item">
+          <p class="price">1200 cup (más de 10)</p>
+        </div>
+      </div>
+
+      <div class="pricing-row">
+        <div class="row-item">
+          <h3>MousePad Personalizados</h3>
+        </div>
+        <div class="row-item">
+          <p>Personalización de MousePad con tu diseño favorito.</p>
+        </div>
+        <div class="row-item">
+          <p class="price">500 cup</p>
+        </div>
+        <div class="row-item">
+          <p class="price">450 cup (más de 10)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Llamado a la Acción -->
+    <div class="pricing-cta">
+      <p>¿Necesitas una cotización personalizada? ¡Contáctanos!</p>
+      <a href="https://wa.me/+5358477556" class="cta-button" target="_blank" rel="noopener noreferrer">
+        Contactar por WhatsApp
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Estilos Globales */
+  .pricing {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #F7FFF7;
+  }
+
+  .pricing-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FF6B6B;
+    margin-bottom: 15px;
+  }
+
+  .pricing-description {
+    font-size: 1rem;
+    color: #555555;
+    margin-bottom: 30px;
+  }
+
+  /* Tabla de Precios */
+  .pricing-table {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 30px;
+  }
+
+  .pricing-header {
+    display: contents;
+    font-weight: 700;
+    background-color: #4ECDC4;
+    color: #FFFFFF;
+  }
+
+  .pricing-header .header-item {
+    padding: 15px;
+    text-align: center;
+    background-color: #4ECDC4;
+  }
+
+  .pricing-row {
+    display: contents;
+  }
+
+  .pricing-row .row-item {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #F0F0F0;
+  }
+
+  .pricing-row:last-child .row-item {
+    border-bottom: none;
+  }
+
+  .pricing-row h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2F2F2F;
+    margin-bottom: 10px;
+  }
+
+  .pricing-row p {
+    font-size: 0.9rem;
+    color: #555555;
+  }
+
+  .price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #FF6B6B;
+  }
+
+  /* Llamado a la Acción */
+  .pricing-cta {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .pricing-cta p {
+    font-size: 1rem;
+    color: #555555;
+    margin-bottom: 15px;
+  }
+
+  .cta-button {
+    background-color: #25D366;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: #128C7E;
+  }
+
+  /* Responsive para móviles */
+  @media (max-width: 768px) {
+    .pricing-table {
+      grid-template-columns: 1fr;
+    }
+
+    .pricing-header {
+      display: none;
+    }
+
+    .pricing-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 15px;
+      border-bottom: 1px solid #F0F0F0;
+    }
+
+    .pricing-row:last-child {
+      border-bottom: none;
+    }
+
+    .pricing-row .row-item {
+      padding: 10px;
+      text-align: left;
+    }
+
+    .pricing-row h3 {
+      font-size: 1.1rem;
+    }
+
+    .pricing-row p {
+      font-size: 0.85rem;
+    }
+
+    .price {
+      font-size: 0.9rem;
+    }
+
+    .pricing-cta p {
+      font-size: 0.9rem;
+    }
+
+    .cta-button {
+      font-size: 0.85rem;
+      padding: 8px 16px;
+    }
+  }
+</style>

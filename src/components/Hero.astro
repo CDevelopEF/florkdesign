@@ -1,0 +1,88 @@
+---
+// Importa los componentes necesarios
+import Header from '../components/Header.astro';
+import background from '../assets/background.svg';
+---
+
+<div>
+  <head>
+    <title>Sublimación de Calidad para Tus Ideas</title>
+  </head>
+  <div>
+    <Header />
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Sublimación de Calidad para Tus Ideas</h1>
+        <p class="hero-subtitle">Personalizamos tazas, playeras, gorras y más con diseños únicos y duraderos.</p>
+        <button class="hero-button">Consulta nuestros precios</button>
+      </div>
+      <div class="hero-image">
+        <img src="/pullover.png" alt="Imagen de Pullover" width="600px" height="600px" />
+      </div>
+    </section>
+    <!-- <Footer /> -->
+</div>
+</div>
+<style>
+    /* Estilos globales */
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #2F2F2F;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-content {
+      max-width: 500px;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #FF6B6B;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-button {
+      background-color: #FFE66D;
+      color: #2F2F2F;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero-button:hover {
+      background-color: #FFD700;
+    }
+
+    /* .hero-image img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    } */
+    @media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-image {
+    margin-top: 20px;
+  }
+}
+  </style>
