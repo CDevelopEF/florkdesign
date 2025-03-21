@@ -2,6 +2,7 @@
 // Importa los componentes necesarios
 import Header from '../components/Header.astro';
 import background from '../assets/background.svg';
+const PATH = '/florkdesign/'
 ---
 
 <div>
@@ -17,7 +18,7 @@ import background from '../assets/background.svg';
         <button class="hero-button">Consulta nuestros precios</button>
       </div>
       <div class="hero-image">
-        <img src="/pullover.png" alt="Imagen de Pullover" width="600px" height="600px" />
+        <img src=`${PATH}pullover.png` alt="Imagen de Pullover" width="600px" height="600px" />
       </div>
     </section>
     <!-- <Footer /> -->
