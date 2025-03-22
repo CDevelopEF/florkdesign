@@ -1,0 +1,79 @@
+---
+// Astro frontmatter (opcional, si necesitas importar componentes o estilos)
+---
+
+<section class="metrics-section">
+    <div class="metric-box">
+      <h2 class="metric-number" data-target="70">0</h2>
+      <p class="metric-label">Ventas Realizadas</p>
+    </div>
+    <div class="metric-box">
+      <h2 class="metric-number" data-target="60">0</h2>
+      <p class="metric-label">Tazas Personalizadas</p>
+    </div>
+    <div class="metric-box">
+      <h2 class="metric-number" data-target="4">0</h2>
+      <p class="metric-label">Negocios con Empresas</p>
+    </div>
+  </section>
+<style>
+    .metrics-section {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 2rem;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      margin: 2rem 0;
+    }
+  
+    .metric-box {
+      text-align: center;
+    }
+  
+    .metric-number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #333;
+      margin: 0;
+    }
+  
+    .metric-label {
+      font-size: 1.2rem;
+      color: #666;
+      margin: 0.5rem 0 0;
+    }
+  </style>
+<script>
+    // Función para animar los números
+    function animateMetric(element, target) {
+      let current = 0;
+      const increment = target / 100; // Ajusta la velocidad de la animación
+      const interval = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          clearInterval(interval);
+          current = target;
+        }
+        element.textContent = Math.floor(current);
+      }, 20); // Ajusta el tiempo de actualización
+    }
+  
+    // Observador para iniciar la animación cuando la sección sea visible
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const metricNumbers = document.querySelectorAll('.metric-number');
+          metricNumbers.forEach((number) => {
+            const target = parseInt(number.getAttribute('data-target'), 10);
+            animateMetric(number, target);
+          });
+          observer.disconnect(); // Detiene el observador después de la animación
+        }
+      });
+    });
+  
+    // Observa la sección de métricas
+    const metricsSection = document.querySelector('.metrics-section');
+    observer.observe(metricsSection);
+  </script>
