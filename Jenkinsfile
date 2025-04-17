@@ -3,6 +3,7 @@ pipeline {
      environment {
         PATH = "/usr/local/bin:$PATH"
     }
+        
     stages {
         stage('Info') {
             steps {
@@ -12,8 +13,6 @@ pipeline {
                 sh 'env'
             }
         }
-    }
-    stages {
         // Etapa de construcción
         stage('Build') {
             steps {
