@@ -1,6 +1,8 @@
 pipeline {
     agent any  // Ejecutar en cualquier nodo
-
+     environment {
+        PATH = "/usr/local/bin:$PATH"
+    }
     stages {
         // Etapa de construcción
         stage('Build') {
