@@ -15,13 +15,13 @@ pipeline {
 
         stage('Instalar dependencias') {
             steps {
-                sh 'npm ci'
+                echo 'hello!'
             }
         }
 
         stage('Compilar') {
             steps {
-                sh 'npm run build'
+                echo 'hello there!'
             }
         }
 
