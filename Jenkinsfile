@@ -4,6 +4,16 @@ pipeline {
         PATH = "/usr/local/bin:$PATH"
     }
     stages {
+        stage('Info') {
+            steps {
+                sh 'whoami'
+                sh 'hostname'
+                sh 'which npm || echo "npm no encontrado"'
+                sh 'env'
+            }
+        }
+    }
+    stages {
         // Etapa de construcción
         stage('Build') {
             steps {
