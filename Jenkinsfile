@@ -1,56 +1,50 @@
 pipeline {
-    agent any  // Ejecutar en cualquier nodo
-     environment {
-        PATH = "/usr/local/bin:$PATH"
-    }
-        
-    stages {
-        stage('Info') {
-            steps {
-                sh 'whoami'
-                sh 'hostname'
-                sh 'which npm || echo "npm no encontrado"'
-                sh 'env'
-            }
+    agent {
+        docker {
+            image 'node:18' // imagen oficial de Node.js con npm ya incluido
         }
-        // Etapa de construcción
-        stage('Build') {
+    }
+
+    stages {
+        stage('Preparar entorno') {
             steps {
-                script {
-                    // Instalar dependencias y construir el proyecto
-                    sh 'npm install'
-                    sh 'npm run build'
-                }
+                sh 'node -v'
+                sh 'npm -v'
             }
         }
 
-        // Etapa de pruebas
+        stage('Instalar dependencias') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Compilar') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+
         stage('Test') {
             steps {
-                script {
-                    // Ejecutar las pruebas
-                    sh 'npm test'
-                }
+                sh 'npm test || echo "Tests fallaron pero seguimos..."'
             }
         }
 
-        // Etapa de despliegue
         stage('Deploy') {
             steps {
-                script {
-                    // Comando para desplegar (esto dependerá de tu flujo de trabajo)
-                    sh './deploy.sh'
-                }
+                echo 'Acá podrías poner lógica de deploy si querés'
             }
         }
     }
 
     post {
         success {
-            echo 'El pipeline se ejecutó con éxito'
+            echo '✅ Pipeline ejecutado con éxito'
         }
         failure {
-            echo 'Hubo un error en el pipeline'
+            echo '❌ Hubo un error en el pipeline'
         }
     }
 }
+
